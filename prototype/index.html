@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>Signal Hunt - Local UI Sketch</title>
+    <link rel="stylesheet" href="map/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="map/vendor/leaflet/leaflet.js" defer></script>
+    <script src="map/data.js" defer></script>
+    <script src="map/renderer.js" defer></script>
+    <script src="config/hunts.js" defer></script>
+    <script src="game.js" defer></script>
+    <script src="ui/copy.js" defer></script>
+    <script src="ui/views.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <symbol id="icon-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"/></symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M5 12h14"/></symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></symbol>
+        <symbol id="icon-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+        <symbol id="icon-route" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 6h8.5a3.5 3.5 0 0 1 0 7h-11a3.5 3.5 0 0 0 0 7H15"/></symbol>
+        <symbol id="icon-settings" viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></symbol>
+        <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+        <symbol id="icon-scan" viewBox="0 0 24 24"><path d="M4 7V4h3m10 0h3v3M4 17v3h3m10 0h3v-3M4 12h16"/></symbol>
+        <symbol id="icon-navigation" viewBox="0 0 24 24"><path d="m3 11 19-9-9 19-2-8-8-2Z"/></symbol>
+        <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15.36-6.36L21 8M21 3v5h-5m5 4a9 9 0 0 1-15.36 6.36L3 16m5 0H3v5"/></symbol>
+        <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></symbol>
+        <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+        <symbol id="icon-pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></symbol>
+        <symbol id="icon-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Zm6-3v15m6-12v15"/></symbol>
+        <symbol id="icon-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></symbol>
+      </defs>
+    </svg>
+
+    <header class="workbench-header">
+      <a class="wordmark" href="#explore">Signal Hunt<span>Interface study / 01</span></a>
+      <span class="prototype-label">Local prototype <span aria-hidden="true">/</span> simulated data</span>
+      <a class="spec-link" href="../specifications/additional-specification.md">Specification</a>
+    </header>
+
+    <main class="workbench">
+      <aside class="review-panel" aria-label="Prototype review controls">
+        <p class="eyebrow">The walkthrough</p>
+        <h1>A walk.<br>A clue.<br>A discovery.</h1>
+        <p class="review-description">A use-case and UX prototype with provisional visual design. Real OpenStreetMap data, fictional hunts. No server, real GPS, camera access, or runtime map requests.</p>
+
+        <div class="review-section">
+          <h2>Review a flow</h2>
+          <button class="review-link" data-action="go" data-screen="explore">01 <span>Discover a hunt</span></button>
+          <button class="review-link" data-action="go" data-screen="runs">02 <span>My hunts &amp; history</span></button>
+          <button class="review-link" data-action="preview-finale">03 <span>Load a finale scenario</span></button>
+          <button class="review-link" data-action="go" data-screen="settings">04 <span>Language &amp; privacy</span></button>
+        </div>
+
+        <details class="scenario-controls" open>
+          <summary>Simulated conditions</summary>
+          <label>Connection<select id="scenario-connection"><option value="online">Connected</option><option value="offline">Connection lost</option></select></label>
+          <label>Location<select id="scenario-location"><option value="near">At checkpoint / accurate</option><option value="far">Too far away</option><option value="inaccurate">Inaccurate GPS</option><option value="denied">Permission denied</option></select></label>
+          <label>Camera<select id="scenario-camera"><option value="allowed">Permission granted</option><option value="denied">Permission denied</option></select></label>
+          <button class="review-reset" data-action="reset">Restart prototype</button>
+        </details>
+        <p class="review-footnote">Review controls are outside the app. They are not proposed gameplay shortcuts.</p>
+      </aside>
+
+      <section class="preview-area" aria-label="Mobile app preview">
+        <div class="preview-caption"><span id="screen-caption">01 / Explore</span><span>390 px study</span></div>
+        <div class="phone">
+          <div class="device-status" aria-hidden="true"><span>9:41</span><span class="device-island"></span><span>100%</span></div>
+          <div id="app" class="app"></div>
+        </div>
+        <p class="preview-footer">Use-case and UX prototype. The visual design is provisional, not the final UI, and will evolve. Answers are public demo fixtures; progress is simulated on this device.</p>
+      </section>
+
+      <aside class="context-panel" aria-label="Screen review notes">
+        <p class="eyebrow">Current surface</p>
+        <h2 id="context-title">Explore</h2>
+        <p id="context-description">Find a local trail without creating an account.</p>
+        <div class="context-rule"></div>
+        <p class="eyebrow">Review for</p>
+        <ul id="context-checks"></ul>
+        <div class="context-rule"></div>
+        <p class="eyebrow">Scope stays small</p>
+        <p>Locally hosted OpenStreetMap extract for a small Warsaw demo area. No login, rankings, social feed, routing engine, or offline completion.</p>
+        <p>In the real app, the server owns answers, question selection, and completion. This sketch does not implement that backend.</p>
+      </aside>
+    </main>
+
+    <dialog id="confirmation-dialog" aria-labelledby="dialog-title">
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-description"></p>
+      <div class="dialog-actions"><button id="dialog-cancel" class="button secondary"></button><button id="dialog-confirm" class="button primary"></button></div>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <noscript>This clickable sketch needs JavaScript enabled. Its source is split into readable local HTML, CSS, and JavaScript files.</noscript>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "signal-hunt-prototype",
+  "private": true,
+  "description": "Signal Hunt dependency-free use-case prototype",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start:macos": "open index.html",
+    "start:windows": "start \"\" \"index.html\"",
+    "start:linux": "xdg-open index.html",
+    "check:config": "node check-config.mjs",
+    "test": "node --test tests/game.test.mjs",
+    "check": "npm run check:config && npm test",
+    "map:build": "node map/build-data.mjs"
+  }
+}
