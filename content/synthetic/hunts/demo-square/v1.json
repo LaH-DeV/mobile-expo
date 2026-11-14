@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "huntId": "demo-square",
+  "version": 1,
+  "title": { "pl": "Sekret placu", "en": "The Square's Secret" },
+  "story": {
+    "pl": "Stara brama, miedziany zegar i cichy pawilon. Podążaj za szczegółami, które inni mijają.",
+    "en": "An old gate. A copper clock. A quiet pavilion. Follow the details most people walk past."
+  },
+  "terrainNotes": {
+    "pl": "Bruk i dwa stopnie przy pawilonie.",
+    "en": "Paving stones and two steps at the pavilion."
+  },
+  "startDescription": {
+    "pl": "Zacznij przy północnej bramie placu.",
+    "en": "Start at the square's north gate."
+  },
+  "difficulty": "easy",
+  "estimatedLengthMeters": 800,
+  "estimatedDurationMinutes": 25,
+  "finale": { "type": "qr", "qrToken": "giVSDx2FqYNPqRi-Mr5Hqj9UPoQJCc4KlRFPSl359lE" },
+  "checkpoints": [
+    {
+      "id": "gate",
+      "title": { "pl": "Północna brama", "en": "The north gate" },
+      "location": { "latitude": 52.23, "longitude": 21.01 },
+      "drawCount": 1,
+      "questions": [
+        {
+          "id": "gate.symbol",
+          "type": "choice",
+          "prompt": { "pl": "Jaki znak jest nad bramą?", "en": "Which symbol is above the gate?" },
+          "hints": [{ "pl": "Spójrz nad środek wejścia.", "en": "Look above the centre of the entrance." }],
+          "reveal": {
+            "answerDisplay": { "pl": "Gwiazda", "en": "Star" },
+            "explanation": { "pl": "Nad bramą jest gwiazda.", "en": "There is a star above the gate." }
+          },
+          "choices": [
+            { "id": "star", "text": { "pl": "Gwiazda", "en": "Star" }, "correct": true },
+            { "id": "leaf", "text": { "pl": "Liść", "en": "Leaf" }, "correct": false },
+            { "id": "key", "text": { "pl": "Klucz", "en": "Key" }, "correct": false }
+          ]
+        },
+        {
+          "id": "gate.date",
+          "type": "numeric",
+          "prompt": { "pl": "Jaki rok widnieje na bramie?", "en": "Which year is written on the gate?" },
+          "hints": [{ "pl": "Poszukaj czterech cyfr.", "en": "Look for four digits." }],
+          "reveal": {
+            "answerDisplay": { "pl": "1924", "en": "1924" },
+            "explanation": { "pl": "Na bramie widnieje rok 1924.", "en": "The gate reads 1924." }
+          },
+          "answer": { "value": "1924" }
+        }
+      ]
+    },
+    {
+      "id": "clock",
+      "title": { "pl": "Miedziany zegar", "en": "The copper clock" },
+      "location": { "latitude": 52.2305, "longitude": 21.0105 },
+      "drawCount": 1,
+      "questions": [
+        {
+          "id": "clock.colour",
+          "type": "text",
+          "prompt": { "pl": "Jakiego koloru jest tarcza zegara?", "en": "What colour is the clock face?" },
+          "hints": [
+            {
+              "pl": "Przyjrzyj się powierzchni za wskazówkami.",
+              "en": "Look at the surface behind the hands."
+            },
+            { "pl": "To kolor pewnego metalu.", "en": "It is the colour of a metal." }
+          ],
+          "reveal": {
+            "answerDisplay": { "pl": "miedziany", "en": "copper" },
+            "explanation": { "pl": "Tarcza ma miedziany kolor.", "en": "The face is copper-coloured." }
+          },
+          "accepted": { "pl": ["miedziany", "miedziana"], "en": ["copper"] }
+        },
+        {
+          "id": "clock.positions",
+          "type": "numeric",
+          "prompt": { "pl": "Ile pozycji godzinowych ma zegar?", "en": "How many hour positions does the clock have?" },
+          "hints": [{ "pl": "Policz oznaczenia na obwodzie.", "en": "Count the marks around the edge." }],
+          "reveal": {
+            "answerDisplay": { "pl": "12", "en": "12" },
+            "explanation": { "pl": "Zegar ma 12 pozycji.", "en": "The clock has 12 positions." }
+          },
+          "answer": { "value": "12" }
+        }
+      ]
+    },
+    {
+      "id": "pavilion",
+      "title": { "pl": "Pawilon", "en": "The pavilion" },
+      "location": { "latitude": 52.231, "longitude": 21.011 },
+      "drawCount": 2,
+      "questions": [
+        {
+          "id": "pavilion.columns",
+          "type": "numeric",
+          "prompt": { "pl": "Ile kolumn stoi od strony placu?", "en": "How many columns face the square?" },
+          "hints": [{ "pl": "Licz tylko kolumny od frontu.", "en": "Count only the front columns." }],
+          "reveal": {
+            "answerDisplay": { "pl": "3", "en": "3" },
+            "explanation": { "pl": "Od frontu są trzy kolumny.", "en": "There are three columns at the front." }
+          },
+          "answer": { "value": "3" }
+        },
+        {
+          "id": "pavilion.symbol",
+          "type": "choice",
+          "prompt": { "pl": "Co przedstawia znak na pawilonie?", "en": "What does the pavilion's symbol depict?" },
+          "hints": [{ "pl": "Spójrz na znak przy dachu.", "en": "Look at the symbol by the roof." }],
+          "reveal": {
+            "answerDisplay": { "pl": "Ptak", "en": "Bird" },
+            "explanation": { "pl": "Znak przedstawia ptaka.", "en": "The symbol depicts a bird." }
+          },
+          "choices": [
+            { "id": "bird", "text": { "pl": "Ptak", "en": "Bird" }, "correct": true },
+            { "id": "tree", "text": { "pl": "Drzewo", "en": "Tree" }, "correct": false },
+            { "id": "sun", "text": { "pl": "Słońce", "en": "Sun" }, "correct": false }
+          ]
+        }
+      ]
+    }
+  ]
+}

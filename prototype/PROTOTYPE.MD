@@ -18,7 +18,7 @@ cd prototype
 | `npm run check`                              | Run configuration validation and all regression tests                              |
 | `npm run map:build -- /path/to/osm-map.json` | Rebuild the bundled map from an existing OSM JSON extract                          |
 
-Choose the start command for your operating system, or open the HTML file directly. Run `npm run` to list the available commands. The [prototype package manifest](package.json) only provides command shortcuts; it introduces no dependencies or framework setup. Prototype tooling stays inside that directory; there is no root package manifest.
+Choose the start command for your operating system, or open the HTML file directly. Run `npm run` to list the available commands. The [prototype package manifest](package.json) only provides command shortcuts; it introduces no dependencies or framework setup. Prototype tooling stays inside that directory; it is not part of the root npm workspaces used by the backend.
 
 ## UI sketch
 
@@ -115,4 +115,4 @@ The [conversion script](map/build-data.mjs) publishes only selected cartographic
 
 ## Implementation status
 
-The repository contains specifications and a working local HTML prototype with embedded maps. Expo application and API implementation have not started. Native MapLibre support, compatible dependency versions, supported OS versions, and reference-device performance targets remain verification gates.
+The repository contains specifications, a working local HTML prototype with embedded maps, and a separate backend API (see [docs/backend.md](../docs/backend.md)). The prototype does not call that API, and the Expo application has not been started. Native MapLibre support, compatible dependency versions, supported OS versions, and reference-device performance targets remain verification gates.

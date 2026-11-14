@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "hunts": {
+    "demo-square": { "currentVersion": 1, "available": true, "unavailableReason": null },
+    "clock-walk": { "currentVersion": 1, "available": true, "unavailableReason": null }
+  }
+}
