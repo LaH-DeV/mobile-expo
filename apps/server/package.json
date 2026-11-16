@@ -1,0 +1,30 @@
+{
+  "name": "@signal-hunt/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Signal Hunt Fastify modular-monolith API",
+  "scripts": {
+    "env:init": "tsx src/cli.ts env:init",
+    "db:migrate": "tsx src/cli.ts db:migrate",
+    "db:reset": "tsx src/cli.ts db:reset",
+    "db:generate": "drizzle-kit generate",
+    "content:load": "tsx src/cli.ts content:load",
+    "maintenance": "tsx src/cli.ts maintenance",
+    "openapi": "tsx src/cli.ts openapi",
+    "dev": "tsx watch src/main.ts",
+    "start": "tsx src/main.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fastify/rate-limit": "^11.2.2",
+    "@signal-hunt/content-tools": "*",
+    "@signal-hunt/contracts": "*",
+    "better-sqlite3": "^13.2.0",
+    "drizzle-orm": "^0.45.4",
+    "fastify": "^5.12.8",
+    "geographiclib-geodesic": "^2.2.0",
+    "zod": "^4.6.7"
+  }
+}

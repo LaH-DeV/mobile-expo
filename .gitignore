@@ -147,3 +147,7 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Signal Hunt local data and private content
+/data/
+/content/private/

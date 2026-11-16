@@ -33,6 +33,29 @@ See [prototype/PROTOTYPE.MD](prototype/PROTOTYPE.MD) for the prototype documenta
 | Hosting                         | Local development/demo only; public hosting is a separate future decision                                           |
 | Style                           | Accessible outdoor utility, system light/dark themes                                                                |
 
+## Backend
+
+The API, shared contracts and content tooling are implemented as npm workspaces. Requires Node.js 22.12+.
+
+```sh
+npm install
+npm run setup   # creates .env, migrates the SQLite database, loads the synthetic fixtures
+npm run dev     # API on http://127.0.0.1:3000
+npm run check   # type check, lint, format check, tests
+```
+
+| Path                                             | Contents                                                                            |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| [apps/server](apps/server)                       | Fastify modular-monolith API with Drizzle and persistent SQLite                     |
+| [packages/contracts](packages/contracts)         | Runtime-neutral Zod schemas, types, error codes and route table                     |
+| [packages/content-tools](packages/content-tools) | Private content validation and release preparation (never used by mobile)           |
+| [content/synthetic](content/README.md)           | Public synthetic Polish/English fixtures; their answers and QR token are not secret |
+
+See [docs/backend.md](docs/backend.md) for commands, configuration, the client integration contract, decisions on open
+specification points, and what is not implemented or verified.
+
 ## Implementation status
 
-Expo application and API implementation have not started. Native MapLibre support, compatible dependency versions, supported OS versions, and reference-device performance targets remain verification gates.
+The backend API, shared contracts, content tooling and their automated tests are implemented and run locally. The Expo
+application has not been started. Native MapLibre support, Expo/React Native compatibility of the contracts package,
+supported OS versions, real-device GPS/QR validation, and reference-device performance targets remain verification gates.

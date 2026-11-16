@@ -1,0 +1,43 @@
+{
+  "name": "signal-hunt",
+  "private": true,
+  "type": "module",
+  "description": "Signal Hunt monorepo: backend API, shared contracts, private content tooling",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^22.20.5",
+    "drizzle-kit": "^0.31.11",
+    "eslint": "^10.15.0",
+    "prettier": "^3.10.1",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.2",
+    "vitest": "^5.1.0"
+  },
+  "scripts": {
+    "env:init": "npm run env:init -w @signal-hunt/server",
+    "db:migrate": "npm run db:migrate -w @signal-hunt/server",
+    "db:reset": "npm run db:reset -w @signal-hunt/server",
+    "content:validate": "npm run validate -w @signal-hunt/content-tools --",
+    "content:new-qr-token": "npm run new-qr-token -w @signal-hunt/content-tools",
+    "content:load": "npm run content:load -w @signal-hunt/server",
+    "setup": "npm run env:init && npm run db:migrate && npm run content:load",
+    "dev": "npm run dev -w @signal-hunt/server",
+    "start": "npm run start -w @signal-hunt/server",
+    "maintenance": "npm run maintenance -w @signal-hunt/server",
+    "openapi": "npm run --silent openapi -w @signal-hunt/server",
+    "typecheck": "npm run typecheck --workspaces",
+    "lint": "eslint .",
+    "format": "prettier --write apps packages content docs",
+    "format:check": "prettier --check apps packages content docs",
+    "test": "npm run test --workspaces",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run test"
+  }
+}

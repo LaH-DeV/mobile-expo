@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "huntId": "clock-walk",
+  "version": 1,
+  "title": { "pl": "Spacer zegarmistrza", "en": "The Clockmaker's Walk" },
+  "story": {
+    "pl": "Odkryj ten sam fikcyjny plac w spokojniejszym tempie. Ta trasa kończy się zagadką, bez skrytki.",
+    "en": "Take the same fictional square at a slower pace. This version ends with a discovery, not a container."
+  },
+  "terrainNotes": {
+    "pl": "Bruk i dwa stopnie przy pawilonie.",
+    "en": "Paving stones and two steps at the pavilion."
+  },
+  "startDescription": {
+    "pl": "Zacznij przy północnej bramie placu.",
+    "en": "Start at the square's north gate."
+  },
+  "difficulty": "easy",
+  "estimatedLengthMeters": 800,
+  "estimatedDurationMinutes": 25,
+  "finale": { "type": "digital" },
+  "checkpoints": [
+    {
+      "id": "gate",
+      "title": { "pl": "Północna brama", "en": "The north gate" },
+      "location": { "latitude": 52.2307, "longitude": 21.0124 },
+      "drawCount": 1,
+      "questions": [
+        {
+          "id": "gate.date",
+          "type": "numeric",
+          "prompt": { "pl": "Jaki rok widnieje nad bramą?", "en": "Which year is written above the gate?" },
+          "hints": [{ "pl": "Poszukaj czterech cyfr nad wejściem.", "en": "Look for four digits above the entrance." }],
+          "reveal": {
+            "answerDisplay": { "pl": "1924", "en": "1924" },
+            "explanation": { "pl": "Na bramie widnieje rok 1924.", "en": "The gate reads 1924." }
+          },
+          "answer": { "value": "1924" }
+        }
+      ]
+    },
+    {
+      "id": "clock",
+      "title": { "pl": "Miedziany zegar", "en": "The copper clock" },
+      "location": { "latitude": 52.2312, "longitude": 21.0129 },
+      "radiusMeters": 25,
+      "radiusReason": "Synthetic example of a tighter radius for a small courtyard.",
+      "drawCount": 2,
+      "questions": [
+        {
+          "id": "clock.colour",
+          "type": "text",
+          "prompt": { "pl": "Jakiego koloru jest tarcza zegara?", "en": "What colour is the clock face?" },
+          "hints": [
+            { "pl": "Przyjrzyj się powierzchni za wskazówkami.", "en": "Look at the surface behind the hands." }
+          ],
+          "reveal": {
+            "answerDisplay": { "pl": "miedziany", "en": "copper" },
+            "explanation": { "pl": "Tarcza ma miedziany kolor.", "en": "The face is copper-coloured." }
+          },
+          "accepted": { "pl": ["miedziany", "miedziana"], "en": ["copper", "copper-coloured"] }
+        },
+        {
+          "id": "clock.maker",
+          "type": "text",
+          "prompt": { "pl": "Z jakiego miasta pochodził zegarmistrz?", "en": "Which city was the clockmaker from?" },
+          "hints": [],
+          "reveal": {
+            "answerDisplay": { "pl": "Łódź", "en": "Łódź" },
+            "explanation": {
+              "pl": "Na tabliczce widnieje napis „Łódź”.",
+              "en": "The plaque reads “Łódź”."
+            }
+          },
+          "accepted": { "pl": ["Łódź"], "en": ["Łódź", "Lodz"] }
+        },
+        {
+          "id": "clock.height",
+          "type": "numeric",
+          "prompt": {
+            "pl": "Ile metrów wysokości ma słup zegara według tabliczki?",
+            "en": "How many metres tall is the clock post according to the plaque?"
+          },
+          "hints": [
+            { "pl": "Tabliczka podaje wartość z ułamkiem.", "en": "The plaque gives a value with a fraction." }
+          ],
+          "reveal": {
+            "answerDisplay": { "pl": "3,5 m", "en": "3.5 m" },
+            "explanation": { "pl": "Słup ma 3,5 metra wysokości.", "en": "The post is 3.5 metres tall." }
+          },
+          "answer": { "value": "3.5", "tolerance": "0.1" }
+        }
+      ]
+    },
+    {
+      "id": "pavilion",
+      "title": { "pl": "Pawilon", "en": "The pavilion" },
+      "location": { "latitude": 52.2317, "longitude": 21.0134 },
+      "drawCount": 1,
+      "questions": [
+        {
+          "id": "pavilion.symbol",
+          "type": "choice",
+          "prompt": { "pl": "Co przedstawia znak na pawilonie?", "en": "What does the pavilion's symbol depict?" },
+          "hints": [{ "pl": "Spójrz na znak przy dachu.", "en": "Look at the symbol by the roof." }],
+          "reveal": {
+            "answerDisplay": { "pl": "Ptak", "en": "Bird" },
+            "explanation": { "pl": "Znak przedstawia ptaka.", "en": "The symbol depicts a bird." }
+          },
+          "choices": [
+            { "id": "bird", "text": { "pl": "Ptak", "en": "Bird" }, "correct": true },
+            { "id": "tree", "text": { "pl": "Drzewo", "en": "Tree" }, "correct": false },
+            { "id": "sun", "text": { "pl": "Słońce", "en": "Sun" }, "correct": false }
+          ]
+        }
+      ]
+    }
+  ]
+}
